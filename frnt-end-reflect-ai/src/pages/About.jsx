@@ -1,3 +1,7 @@
-export default function About() {
-  return <div className="text-xl">📊 Insights Overview</div>;
-}
+import React from "react";
+
+const About = () => {
+  return <h1 className="text-2xl font-bold">Entries</h1>;
+};
+
+export default About;

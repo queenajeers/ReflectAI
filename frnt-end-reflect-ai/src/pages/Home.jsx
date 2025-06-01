@@ -1,3 +1,7 @@
-export default function Home() {
-  return <div className="text-xl">📘 Welcome to Entries</div>;
-}
+import React from "react";
+
+const Home = () => {
+  return <h1 className="text-2xl font-bold">Journal</h1>;
+};
+
+export default Home;
