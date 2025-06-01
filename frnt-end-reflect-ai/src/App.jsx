@@ -2,8 +2,9 @@ import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Layout from "./Layout";
 import Home from "./pages/Home";
-import About from "./pages/About";
-import Items from "./pages/Items";
+import Entries from "./pages/Entries";
+import Insights from "./pages/Insights";
+import NewEntry from "./pages/NewEntry";
 
 const router = createBrowserRouter([
   {
@@ -11,8 +12,9 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
-      { path: "/about", element: <About /> },
-      { path: "/items", element: <Items /> },
+      { path: "/entries", element: <Entries /> },
+      { path: "/entries/new/:id", element: <NewEntry /> },
+      { path: "/insights", element: <Insights /> },
     ],
   },
 ]);

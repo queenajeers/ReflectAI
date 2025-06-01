@@ -7,7 +7,7 @@ const Layout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div className="flex h-screen bg-gray-900 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-lexend">
       {/* Sidebar */}
       <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
 
@@ -17,7 +17,7 @@ const Layout = () => {
         <Navbar setIsOpen={setSidebarOpen} />
 
         {/* Page Content */}
-        <main className="p-4   overflow-y-auto">
+        <main className="p-4 md:ml-0 mt-12 md:mt-0">
           <Outlet />
         </main>
       </div>

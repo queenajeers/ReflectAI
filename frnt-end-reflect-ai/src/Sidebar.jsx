@@ -5,8 +5,8 @@ import clsx from "clsx";
 
 const navItems = [
   { name: "Journal", to: "/", icon: <Notebook className="w-5 h-5" /> },
-  { name: "Entries", to: "/about", icon: <BookOpen className="w-5 h-5" /> },
-  { name: "Insights", to: "/items", icon: <BarChart className="w-5 h-5" /> },
+  { name: "Entries", to: "/entries", icon: <BookOpen className="w-5 h-5" /> },
+  { name: "Insights", to: "/insights", icon: <BarChart className="w-5 h-5" /> },
 ];
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
@@ -19,7 +19,8 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
       <div
         className={clsx(
           "fixed inset-0 bg-black/50 z-20 md:hidden transition-opacity",
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          isOpen ? "opacity-100" : "opacity-0 pointer-events-none",
+          "font-light"
         )}
         onClick={() => setIsOpen(false)}
       />
@@ -29,7 +30,8 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         className={clsx(
           "fixed top-0 left-0 h-full w-64 bg-white dark:bg-gray-800 shadow-lg z-30 transform transition-transform",
           isOpen ? "translate-x-0" : "-translate-x-full",
-          "md:translate-x-0 md:static md:shadow-none"
+          "md:translate-x-0 md:static md:shadow-none",
+          "font-light"
         )}
       >
         {/* Mobile Close Header */}
@@ -50,7 +52,9 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
               onClick={() => setIsOpen(false)}
               className={clsx(
                 "flex items-center gap-3 p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700",
-                location.pathname === item.to && activeClass
+                (location.pathname === item.to ||
+                  (item.to !== "/" && location.pathname.startsWith(item.to))) &&
+                  activeClass
               )}
             >
               {item.icon}
